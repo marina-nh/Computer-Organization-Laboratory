@@ -1,65 +1,65 @@
-# Organización del Computador 2021 - Trabajo de Laboratorio: VC FrameBuffer en QEMU emulando una RPi3
+# Computer Organization 2021 - Lab Work: VC FrameBuffer in QEMU Emulating an RPi3
 
-## Descripción
+## Description
 
-Este proyecto forma parte del trabajo práctico de la materia "Organización del Computador". El objetivo principal fue escribir programas en lenguaje ensamblador ARMv8 para manipular una estructura FrameBuffer de video en una Raspberry Pi 3 emulada con QEMU.
+This project is part of the practical work for the "Computer Organization" course. The main objective was to write programs in ARMv8 assembly language to manipulate a video FrameBuffer structure on a Raspberry Pi 3 emulated with QEMU.
 
-## Objetivos
+## Objectives
 
-- **Escribir programas en ensamblador ARMv8.**
-- **Comprender la interfaz de entrada/salida en memoria del microprocesador utilizando una interfaz visual.**
-- **Implementar y verificar el funcionamiento de una estructura FrameBuffer en una Raspberry Pi 3 emulada.**
+- **Write programs in ARMv8 assembly language.**
+- **Understand the memory-mapped I/O interface of the microprocessor using a visual interface.**
+- **Implement and verify the functionality of a FrameBuffer structure on an emulated Raspberry Pi 3.**
 
-## Ejercicios
+## Exercises
 
-### Ejercicio 1: Generación de Patrón Estático
+### Exercise 1: Static Pattern Generation
 
-Se desarrolló un programa en ensamblador ARMv8 basado en un código de ejemplo proporcionado. El programa genera una imagen estática de Mario Bros sobre una tubería, utilizando los colores característicos del personaje. La imagen cumple con los siguientes requisitos:
+A program was developed in ARMv8 assembly based on a provided example code. The program generates a static image of Mario Bros on a pipe, using the character's characteristic colors. The image meets the following requirements:
 
-- **Utiliza toda la extensión de la pantalla.**
-- **No es un patrón aleatorio.**
-- **Se emplean al menos 3 colores diferentes.**
-- **Incluye al menos dos figuras de distinta forma.**
-- **La imagen puede describirse en dos líneas de texto.**
+- **Utilizes the entire screen area.**
+- **Is not a random pattern.**
+- **Uses at least 3 different colors.**
+- **Includes at least two figures of different shapes.**
+- **The image can be described in two lines of text.**
 
-### Ejercicio 2: Animación de Mario Bros
+### Exercise 2: Mario Bros Animation
 
-Este ejercicio reutiliza el código del Ejercicio 1 para animar la imagen de Mario Bros saliendo de la tubería. La animación cumple con los siguientes requisitos:
+This exercise reuses the code from Exercise 1 to animate the image of Mario Bros emerging from the pipe. The animation meets the following requirements:
 
-- **El patrón ocupa toda la pantalla.**
-- **No es un patrón aleatorio.**
-- **Se emplean al menos 3 colores diferentes.**
-- **Incluye al menos dos figuras de distinta forma.**
-- **La secuencia de movimiento dura al menos 10 segundos.**
+- **The pattern covers the entire screen.**
+- **Is not a random pattern.**
+- **Uses at least 3 different colors.**
+- **Includes at least two figures of different shapes.**
+- **The movement sequence lasts at least 10 seconds.**
 
-## Requisitos
+## Requirements
 
-- **QEMU** (para emular la Raspberry Pi 3).
-- **Compilador de ensamblador ARMv8.**
-- **Herramientas de desarrollo para ARM (como `gcc-arm-none-eabi`).**
+- **QEMU** (to emulate the Raspberry Pi 3).
+- **ARMv8 assembly compiler.**
+- **ARM development tools (such as `gcc-arm-none-eabi`).**
 
-## Ejecución
+## Execution
 
-Para ejecutar los programas en un entorno QEMU que emula una Raspberry Pi 3, sigue los siguientes pasos:
+To run the programs in a QEMU environment emulating a Raspberry Pi 3, follow these steps:
 
-1. Compila el código ensamblador:
+1. Compile the assembly code:
    ```bash
-   arm-none-eabi-as -o ejercicio1.o ejercicio1.s
-   arm-none-eabi-ld -T linker.ld -o ejercicio1.elf ejercicio1.o
+   arm-none-eabi-as -o exercise1.o exercise1.s
+   arm-none-eabi-ld -T linker.ld -o exercise1.elf exercise1.o
    ```
 
-2. Inicia QEMU con el archivo ELF generado:
+2. Launch QEMU with the generated ELF file:
    ```bash
-   qemu-system-aarch64 -M raspi3 -kernel ejercicio1.elf -serial null -serial mon:stdio
+   qemu-system-aarch64 -M raspi3 -kernel exercise1.elf -serial null -serial mon:stdio
    ```
 
-3. Observa el resultado en la ventana de QEMU.
+3. Observe the output in the QEMU window.
 
-## Resultados
+## Results
 
-- **Ejercicio 1:** Imagen estática de Mario Bros sobre una tubería.
-- **Ejercicio 2:** Animación de Mario Bros saliendo de la tubería.
+- **Exercise 1:** Static image of Mario Bros on a pipe.
+- **Exercise 2:** Animation of Mario Bros emerging from the pipe.
 
-## Contribuciones
+## Contributions
 
-Este proyecto fue desarrollado como parte de la materia "Organización del Computador". Se agradece a los docentes por la guía y los ejemplos proporcionados.
+This project was developed as part of the "Computer Organization" course. Thanks to the instructors for their guidance and the examples provided.
